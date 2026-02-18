@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:gravity="center"
-        android:text="Curso dev android - java e kotlin/Aula02 - Metodo Debug e Logcat"
+        android:text="Curso dev android - Java/Aula02 - Metodo Debug e Logcat"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
