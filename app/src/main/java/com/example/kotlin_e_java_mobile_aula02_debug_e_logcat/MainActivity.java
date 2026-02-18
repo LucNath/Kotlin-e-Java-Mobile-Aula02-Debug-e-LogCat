@@ -18,7 +18,11 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnFabricarPessoa;
     private Button btnSair;
-    private TextView txtPessoa;
+    private Button btnCriarPessoa;
+    private Button btnAlterarPessoa;
+    private Button btnDeletarPessoa;
+    private Button btnListarPessoa;
+    private TextView txtPessoa, txtNome, txtIdade;
     Pessoa pessoa;
     int contador = 0;
 
@@ -34,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnFabricarPessoa = findViewById(R.id.btnFabricarPessoa);
+        btnCriarPessoa = findViewById(R.id.btnCriarPessoa);
+
         btnSair = findViewById(R.id.btnSair);
         btnSair.setOnClickListener(v ->
         {
@@ -44,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
 
 
         txtPessoa = findViewById(R.id.txtPessoa);
+        txtNome = findViewById(R.id.txtNome);
+        txtIdade = findViewById(R.id.txtIdade);
+
 
         btnFabricarPessoa.setOnClickListener(v -> {
             Toast.makeText(
@@ -52,8 +61,29 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
 
             int idade = getIdade();
-            pessoa = new Pessoa("Lucas", idade);
+            pessoa = new Pessoa();
             txtPessoa.setText(pessoa.toString());
+        });
+
+        btnCriarPessoa.setOnClickListener(v -> {
+
+            pessoa = new Pessoa();
+
+            pessoa.setNome("Lucas");
+            pessoa.setIdade(getIdade());
+            txtPessoa.setText(pessoa.toString());
+
+            txtNome.setText(pessoa.getNome());
+            txtIdade.setText(String.valueOf(pessoa.getIdade()));
+
+            Toast.makeText(
+                    this,
+                    "Botão Criar Pessoa Clicado",
+                    Toast.LENGTH_SHORT).show();
+
+            contador++;
+            Log.d("eventos", "Botão Criar Pessoa Clicado " + contador);
+
         });
 
     }
