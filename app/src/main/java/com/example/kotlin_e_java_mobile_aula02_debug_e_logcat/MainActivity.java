@@ -44,38 +44,42 @@ public class MainActivity extends AppCompatActivity {
             sairDoAplicativo();
         });
 
-
-        
         btnFabricarPessoa.setOnClickListener(v -> {
-            Toast.makeText(
-                    this,
-                    "Botão Fabricar Pessoa Clicado",
-                    Toast.LENGTH_SHORT).show();
-
-            int idade = getIdade();
-            pessoa = new Pessoa();
-            txtPessoa.setText(pessoa.toString());
+            metodoFabricarPessoa();
         });
 
         btnCriarPessoa.setOnClickListener(v -> {
-
-            pessoa = new Pessoa();
-            pessoa.setNome("Lucas");
-            pessoa.setIdade(getIdade());
-            txtPessoa.setText(pessoa.toString());
-            txtNome.setText(pessoa.getNome());
-            txtIdade.setText(String.valueOf(pessoa.getIdade()));
-
-            Toast.makeText(
-                    this,
-                    "Botão Criar Pessoa Clicado",
-                    Toast.LENGTH_SHORT).show();
-
-            contador++;
-            Log.d("eventos", "Botão Criar Pessoa Clicado " + contador);
-
+            metodoParaCriarPessoa();
         });
 
+    }
+
+    private void metodoParaCriarPessoa() {
+        pessoa = new Pessoa();
+        pessoa.setNome("Lucas");
+        pessoa.setIdade(getIdade());
+        txtPessoa.setText(pessoa.toString());
+        txtNome.setText(pessoa.getNome());
+        txtIdade.setText(String.valueOf(pessoa.getIdade()));
+
+        Toast.makeText(
+                this,
+                "Botão Criar Pessoa Clicado",
+                Toast.LENGTH_SHORT).show();
+
+        contador++;
+        Log.d("eventos", "Botão Criar Pessoa Clicado " + contador);
+    }
+
+    private void metodoFabricarPessoa() {
+        Toast.makeText(
+                this,
+                "Botão Fabricar Pessoa Clicado",
+                Toast.LENGTH_SHORT).show();
+
+        int idade = getIdade();
+        pessoa = new Pessoa();
+        txtPessoa.setText(pessoa.toString());
     }
 
     private void iniciarComponentesDeLayout() {
