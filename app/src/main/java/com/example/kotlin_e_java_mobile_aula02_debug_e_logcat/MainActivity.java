@@ -107,6 +107,24 @@ public class MainActivity extends AppCompatActivity {
         txtPessoa.setText(pessoa.toString());
     }
 
+    private void metodoDeletarPessoa() {
+        if(pessoa != null){
+            contador++;
+            Log.d("eventos", "Pessoa Deletada " + contador);
+            pessoa.setNome("Lucas");
+            pessoa.setIdade(getIdade());
+            txtPessoa.setText(pessoa.toString());
+            txtNome.setText(pessoa.getNome());
+            txtIdade.setText(String.valueOf(pessoa.getIdade()));
+
+            Log.d("eventos", "Botão Deletar Pessoa Clicado " + contador);
+        }else{
+            Toast.makeText(
+                    this,
+                    "Botão Deletar Pessoa Clicado",
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
     private void iniciarComponentesDeLayout() {
         btnFabricarPessoa = findViewById(R.id.btnFabricarPessoa);
         btnCriarPessoa = findViewById(R.id.btnCriarPessoa);
