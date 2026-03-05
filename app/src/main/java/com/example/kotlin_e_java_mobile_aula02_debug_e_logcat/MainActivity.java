@@ -60,6 +60,14 @@ public class MainActivity extends AppCompatActivity {
             metodoParaAlterarPessoa();
         });
 
+        btnDeletarPessoa.setOnClickListener(v -> {
+            metodoDeletarPessoa();
+        });
+
+        btnListarPessoa.setOnClickListener(v -> {
+            metodoParaListarPessoa();
+        });
+
     }
 
     private void metodoParaCriarPessoa() {
@@ -104,7 +112,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void metodoFabricarPessoa() {
         Toast.makeText(
                 this,
@@ -134,6 +141,16 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void metodoParaListarPessoa() {
+
+        for(Pessoa p : ListaDePessoas){
+
+            Log.i("eventos", "Pessoa Cadastrada" + p.toString());
+
+        }
+    }
+
     private void iniciarComponentesDeLayout() {
         btnFabricarPessoa = findViewById(R.id.btnFabricarPessoa);
         btnCriarPessoa = findViewById(R.id.btnCriarPessoa);
