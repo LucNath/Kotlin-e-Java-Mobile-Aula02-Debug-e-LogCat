@@ -12,6 +12,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     private TextView txtPessoa, txtNome, txtIdade;
     Pessoa pessoa;
     int contador = 0;
+
+    List<Pessoa> ListaDePessoas = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,11 +64,16 @@ public class MainActivity extends AppCompatActivity {
 
     private void metodoParaCriarPessoa() {
         pessoa = new Pessoa();
+
         pessoa.setNome("Lucas");
         pessoa.setIdade(getIdade());
+
         txtPessoa.setText(pessoa.toString());
+
         txtNome.setText(pessoa.getNome());
         txtIdade.setText(String.valueOf(pessoa.getIdade()));
+
+        ListaDePessoas.add(pessoa);
 
         Toast.makeText(
                 this,
